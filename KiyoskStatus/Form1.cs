@@ -29,7 +29,7 @@ namespace KiyoskStatus
             listView1.Columns.Add("resturant", 100);
 
             listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-
+            
 
             KiyoskList = new List<kiyosk>()
             {
@@ -75,16 +75,16 @@ namespace KiyoskStatus
                 new kiyosk(){ComputerName= "3715-4544-HD",RestutantName="HD",ID_Khadamat="3715",type=false},
                 new kiyosk(){ComputerName= "3766-4544-HD",RestutantName="HD",ID_Khadamat="3766",type=true},
                 new kiyosk(){ComputerName= "3634-2014-RST3",RestutantName="MTBE2",ID_Khadamat="3634",type=false},
-                new kiyosk(){ComputerName= "3718-4325-VC",RestutantName="VC",ID_Khadamat="3718",type=false},
+                new kiyosk(){ComputerName= "3762-4325-VC",RestutantName="VC",ID_Khadamat="3762",type=false},
 
             };
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
-         
+
         {
-           
+
 
 
         }
@@ -92,64 +92,63 @@ namespace KiyoskStatus
 
         public void RunCheck()
         {
-            lblStatus.Text = "در حال بارگذاری ...";
-            lblStatus.ForeColor = Color.Navy;
-            System.Threading.Thread.Sleep(2000);
+
+
 
             List<kiyosk> error = new List<kiyosk>();
             int j = 1;
             foreach (var item in KiyoskList)
-            {     
+            {
 
                 if (!item.ComputerName.Trim().CheckIp())
                 {
                     error.Add(item);
 
                 }
-                             
-                progressBar1.Value = j;
-                j++;
-
-
             }
-            
+
             LoadLabels(error);
-            
+
         }
-       public void LoadLabels(List<kiyosk> list)
+        public void LoadLabels(List<kiyosk> list)
         {
 
             kiyosk item;
-            listView1.Items.Clear();
+            listView1.Invoke(new Action(() =>
+            {
+                listView1.Items.Clear();
+            }));
+           
 
             for (int i = 0; i < list.Count(); i++)
             {
                 item = list.ElementAt(i);
-                listView1.Items.Add(new ListViewItem(new string[] {item.ID_Khadamat, item.RestutantName}));
+                listView1.Invoke(new Action(() =>
+                {
+                    listView1.Items.Add(new ListViewItem(new string[] { item.ID_Khadamat, item.RestutantName }));
+                }));
+            
 
             }
 
-            lblStatus.Text = "پردازش انجام شد";
-            lblStatus.ForeColor = Color.DarkGreen;
-            BtnRun.Enabled = true;
+
 
 
         }
 
         private void BtnRun_Click(object sender, EventArgs e)
         {
-            //string aptracommand;
-            //aptracommand = "ping 3706A-2007-RST1";
-            //Process.Start(@"cmd", aptracommand);
 
             lblStatus.Text = "در حال بارگذاری ...";
+            lblStatus.ForeColor = Color.Navy;
+            BtnRun.Enabled = false;
             lblStatus.Visible = true;
             progressBar1.Visible = true;
- 
-            BtnRun.Enabled = false;
-            
-         
-            RunCheck();
+            panel1.Visible = false;
+
+            backgroundWorker1.RunWorkerAsync();
+
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,7 +156,7 @@ namespace KiyoskStatus
             if (listView1.SelectedItems.Count > 0)
             {
                 ListViewItem item = listView1.SelectedItems[0];
-                var selectitem= item.SubItems[0].Text;
+                var selectitem = item.SubItems[0].Text;
 
                 var s = KiyoskList.Where(p => p.ID_Khadamat.CompareTo(selectitem) == 0).FirstOrDefault();
 
@@ -166,12 +165,12 @@ namespace KiyoskStatus
                 lbKhadamat.Text = s.ID_Khadamat;
                 lbResturant.Text = s.RestutantName;
                 lbComputerName.Text = s.ComputerName;
-                lbType.Text = (s.type ? "رزرو": "ژتون دهی");
+                lbType.Text = (s.type ? "رزرو" : "ژتون دهی");
                 lbTel.Text = s.Tel;
 
                 BtnRun.Enabled = true;
                 int x = 0;
-              
+
             }
             else
             {
@@ -197,7 +196,56 @@ namespace KiyoskStatus
             return totalTime / echoNum;
         }
 
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<kiyosk> error = new List<kiyosk>();
+            int j = 1;
+            foreach (var item in KiyoskList)
+            {
 
+                if (!item.ComputerName.Trim().CheckIp())
+                {
+                    error.Add(item);
+
+                }
+                 backgroundWorker1.ReportProgress(j);
+                j++;
+            }
+
+           
+            LoadLabels(error);
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatus.Text = "پردازش انجام شد";
+            lblStatus.ForeColor = Color.DarkGreen;
+            BtnRun.Enabled = true;
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void lbComputerName_Click(object sender, EventArgs e)
+        {
+            lbComputerName.Focus();
+            Clipboard.SetText(lbComputerName.Text);
+        }
+
+        private void lbKhadamat_Click(object sender, EventArgs e)
+        {
+            string computername = lbComputerName.Text;
+            string aptracommand;
+            aptracommand = "/k ping " + computername + " -t";
+            Process.Start(@"cmd", aptracommand);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
@@ -233,13 +281,13 @@ namespace KiyoskStatus
                 return false;
             }
 
-          
 
-            
+
+
         }
     }
 
-  
+
 }
-   
+
 

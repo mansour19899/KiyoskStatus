@@ -43,6 +43,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // BtnRun
             // 
+            this.BtnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.BtnRun.Location = new System.Drawing.Point(395, 559);
             this.BtnRun.Name = "BtnRun";
             this.BtnRun.Size = new System.Drawing.Size(112, 49);
@@ -69,11 +71,12 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.Location = new System.Drawing.Point(644, 18);
+            this.label1.Location = new System.Drawing.Point(649, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 33);
             this.label1.TabIndex = 13;
             this.label1.Text = "شماره خدمات";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // listView1
             // 
@@ -95,19 +98,20 @@
             // 
             this.lbKhadamat.AutoSize = true;
             this.lbKhadamat.BackColor = System.Drawing.Color.Transparent;
-            this.lbKhadamat.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbKhadamat.Location = new System.Drawing.Point(531, 18);
+            this.lbKhadamat.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lbKhadamat.Location = new System.Drawing.Point(514, 18);
             this.lbKhadamat.Name = "lbKhadamat";
-            this.lbKhadamat.Size = new System.Drawing.Size(116, 33);
+            this.lbKhadamat.Size = new System.Drawing.Size(118, 25);
             this.lbKhadamat.TabIndex = 15;
             this.lbKhadamat.Text = "شماره خدمات";
+            this.lbKhadamat.Click += new System.EventHandler(this.lbKhadamat_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(379, 18);
+            this.label3.Location = new System.Drawing.Point(393, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 33);
             this.label3.TabIndex = 16;
@@ -129,7 +133,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label5.Location = new System.Drawing.Point(155, 18);
+            this.label5.Location = new System.Drawing.Point(156, 18);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(40, 33);
@@ -141,7 +145,7 @@
             this.lbType.AutoSize = true;
             this.lbType.BackColor = System.Drawing.Color.Transparent;
             this.lbType.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbType.Location = new System.Drawing.Point(100, 18);
+            this.lbType.Location = new System.Drawing.Point(72, 18);
             this.lbType.Name = "lbType";
             this.lbType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbType.Size = new System.Drawing.Size(40, 33);
@@ -152,20 +156,21 @@
             // 
             this.lbComputerName.AutoSize = true;
             this.lbComputerName.BackColor = System.Drawing.Color.Transparent;
-            this.lbComputerName.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbComputerName.Location = new System.Drawing.Point(551, 102);
+            this.lbComputerName.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbComputerName.Location = new System.Drawing.Point(399, 101);
             this.lbComputerName.Name = "lbComputerName";
             this.lbComputerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbComputerName.Size = new System.Drawing.Size(102, 33);
+            this.lbComputerName.Size = new System.Drawing.Size(109, 25);
             this.lbComputerName.TabIndex = 21;
             this.lbComputerName.Text = "نام رستوران";
+            this.lbComputerName.Click += new System.EventHandler(this.lbComputerName_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label8.Location = new System.Drawing.Point(661, 102);
+            this.label8.Location = new System.Drawing.Point(667, 101);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label8.Size = new System.Drawing.Size(99, 33);
@@ -177,7 +182,7 @@
             this.lbTel.AutoSize = true;
             this.lbTel.BackColor = System.Drawing.Color.Transparent;
             this.lbTel.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbTel.Location = new System.Drawing.Point(82, 102);
+            this.lbTel.Location = new System.Drawing.Point(66, 102);
             this.lbTel.Name = "lbTel";
             this.lbTel.Size = new System.Drawing.Size(40, 33);
             this.lbTel.TabIndex = 23;
@@ -188,7 +193,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label10.Location = new System.Drawing.Point(128, 102);
+            this.label10.Location = new System.Drawing.Point(142, 102);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(48, 33);
             this.label10.TabIndex = 22;
@@ -215,16 +220,22 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("B Titr", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lblStatus.ForeColor = System.Drawing.Color.Navy;
-            this.lblStatus.Location = new System.Drawing.Point(341, 19);
+            this.lblStatus.Location = new System.Drawing.Point(261, 19);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblStatus.Size = new System.Drawing.Size(163, 47);
+            this.lblStatus.Size = new System.Drawing.Size(399, 47);
             this.lblStatus.TabIndex = 12;
-            this.lblStatus.Text = "lblStatus";
-            this.lblStatus.Visible = false;
+            this.lblStatus.Text = "بررسی اتصال کیوسک های  رستوران";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // Form1
             // 
@@ -244,7 +255,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -264,6 +274,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblStatus;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
