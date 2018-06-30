@@ -70,10 +70,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.Location = new System.Drawing.Point(649, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 33);
+            this.label1.Size = new System.Drawing.Size(119, 37);
             this.label1.TabIndex = 13;
             this.label1.Text = "شماره خدمات";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -81,6 +81,8 @@
             // listView1
             // 
             this.listView1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.listView1.BackgroundImage = global::KiyoskStatus.Properties.Resources.lunch;
+            this.listView1.BackgroundImageTiled = true;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView1.Font = new System.Drawing.Font("B Yekan", 15.75F);
             this.listView1.ForeColor = System.Drawing.Color.Navy;
@@ -99,7 +101,7 @@
             this.lbKhadamat.AutoSize = true;
             this.lbKhadamat.BackColor = System.Drawing.Color.Transparent;
             this.lbKhadamat.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lbKhadamat.Location = new System.Drawing.Point(514, 18);
+            this.lbKhadamat.Location = new System.Drawing.Point(525, 26);
             this.lbKhadamat.Name = "lbKhadamat";
             this.lbKhadamat.Size = new System.Drawing.Size(118, 25);
             this.lbKhadamat.TabIndex = 15;
@@ -110,10 +112,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label3.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(393, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 33);
+            this.label3.Size = new System.Drawing.Size(107, 37);
             this.label3.TabIndex = 16;
             this.label3.Text = "نام رستوران";
             // 
@@ -121,22 +123,24 @@
             // 
             this.lbResturant.AutoSize = true;
             this.lbResturant.BackColor = System.Drawing.Color.Transparent;
-            this.lbResturant.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbResturant.Location = new System.Drawing.Point(270, 18);
+            this.lbResturant.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lbResturant.Location = new System.Drawing.Point(285, 18);
             this.lbResturant.Name = "lbResturant";
-            this.lbResturant.Size = new System.Drawing.Size(102, 33);
+            this.lbResturant.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbResturant.Size = new System.Drawing.Size(107, 37);
             this.lbResturant.TabIndex = 17;
             this.lbResturant.Text = "نام رستوران";
+            this.lbResturant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(156, 18);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(40, 33);
+            this.label5.Size = new System.Drawing.Size(45, 37);
             this.label5.TabIndex = 18;
             this.label5.Text = "نوع";
             // 
@@ -144,23 +148,22 @@
             // 
             this.lbType.AutoSize = true;
             this.lbType.BackColor = System.Drawing.Color.Transparent;
-            this.lbType.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbType.Location = new System.Drawing.Point(72, 18);
+            this.lbType.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lbType.Location = new System.Drawing.Point(51, 18);
             this.lbType.Name = "lbType";
             this.lbType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbType.Size = new System.Drawing.Size(40, 33);
+            this.lbType.Size = new System.Drawing.Size(45, 37);
             this.lbType.TabIndex = 19;
             this.lbType.Text = "نوع";
             // 
             // lbComputerName
             // 
-            this.lbComputerName.AutoSize = true;
             this.lbComputerName.BackColor = System.Drawing.Color.Transparent;
             this.lbComputerName.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbComputerName.Location = new System.Drawing.Point(399, 101);
+            this.lbComputerName.Location = new System.Drawing.Point(330, 106);
             this.lbComputerName.Name = "lbComputerName";
             this.lbComputerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbComputerName.Size = new System.Drawing.Size(109, 25);
+            this.lbComputerName.Size = new System.Drawing.Size(331, 38);
             this.lbComputerName.TabIndex = 21;
             this.lbComputerName.Text = "نام رستوران";
             this.lbComputerName.Click += new System.EventHandler(this.lbComputerName_Click);
@@ -169,11 +172,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label8.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
             this.label8.Location = new System.Drawing.Point(667, 101);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(99, 33);
+            this.label8.Size = new System.Drawing.Size(103, 37);
             this.label8.TabIndex = 20;
             this.label8.Text = "نام کامپیوتر";
             // 
@@ -181,10 +184,10 @@
             // 
             this.lbTel.AutoSize = true;
             this.lbTel.BackColor = System.Drawing.Color.Transparent;
-            this.lbTel.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbTel.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
             this.lbTel.Location = new System.Drawing.Point(66, 102);
             this.lbTel.Name = "lbTel";
-            this.lbTel.Size = new System.Drawing.Size(40, 33);
+            this.lbTel.Size = new System.Drawing.Size(45, 37);
             this.lbTel.TabIndex = 23;
             this.lbTel.Text = "نوع";
             // 
@@ -192,16 +195,16 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label10.Font = new System.Drawing.Font("B Titr", 15.75F, System.Drawing.FontStyle.Bold);
             this.label10.Location = new System.Drawing.Point(142, 102);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 33);
+            this.label10.Size = new System.Drawing.Size(49, 37);
             this.label10.TabIndex = 22;
             this.label10.Text = "تلفن";
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::KiyoskStatus.Properties.Resources.lunch;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbTel);
             this.panel1.Controls.Add(this.lbKhadamat);
@@ -220,6 +223,7 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblStatus.Font = new System.Drawing.Font("B Titr", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lblStatus.ForeColor = System.Drawing.Color.Navy;
             this.lblStatus.Location = new System.Drawing.Point(261, 19);
@@ -242,6 +246,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackgroundImage = global::KiyoskStatus.Properties.Resources.lunch;
             this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblStatus);
